@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project-1-Game</title>
-</head>
-<body>
-    <h1>hello world</h1>
-</body>
+  </head>
+  <body>
+    <div class="game-intro">
+      <br />
+      <h1>GRANDMA ATTACKS!</h1>
+      <p>
+        Grandma is attacking you with food! Avoid the obstacles until grandma
+        gets tired to win the game!
+      </p>
+      <p>Let's GO!</p>
+      <button id="start-button">START</button>
+    </div>
+
+    <div id="game-board">
+      <canvas
+        id="canvas"
+        width="700"
+        height="500"
+        style="border: 10px solid black"
+      ></canvas>
+    </div>
+
+    <script src="./controls.js"></script>
+    <script src="./food.js"></script>
+    <script src="./grandma.js"></script>
+    <script src="./player.js"></script>
+    <script src="./game.js"></script>
+  </body>
 </html>
