@@ -1,70 +1,45 @@
 class Grandma {
   constructor() {
-    this.x = 650; //starts at x=0
-    this.y = 50;
-    this.width = 50; //width image
-    this.height = 50; //height image
+    this.x = 1115; //starts at x=0
+    this.y = 0;
+    this.width = 85; //width image
+    this.height = 120; //height image
     this.img = new Image();
-    this.lifeBar = 500;
+    this.lifeBar = 230;
   }
 
   drawGrandma() {
-    this.img.src = "./docs/assets/imgs/playeravatar.jpg";
+    this.img.src = "./docs/assets/imgs/grandma_100x65.png";
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+  }
+
+  drawTime() {
+    ctx.strokeStyle = "black";
+    ctx.strokeRect(920, 30, 230, 30);
+    ctx.fillStyle = "orange";
+    ctx.fillRect(920, 30, this.lifeBar, 30);
   }
 
   grandmaLost() {
     ctx.fillStyle = "black";
-    ctx.fillRect(100, 200, 300, 100);
-    ctx.font = "15px serif";
+    ctx.fillRect(350, 200, 500, 300);
+    ctx.font = "25px serif";
     ctx.fillStyle = "white";
-    ctx.fillText(`CONGRATS`, 105, 235);
-    ctx.fillText(`YOU WON!`, 105, 250);
-    ctx.fillText(`NANA GOT TIRED OF THROWING SO MUCH CHICKEN`, 105, 265);
+    ctx.fillText(`CONGRATS`, 520, 250);
+    ctx.fillText(`YOU WON!`, 525, 280);
+    ctx.fillText(`NANA GOT TIRED OF`, 460, 330);
+    ctx.fillText(`THROWING SO MUCH FOOD`, 420, 360);
   }
 
   grandmaMoves() {
     frames++;
-    /* 
-    let minY=0
-    let maxY=450
-    let yPos=Math.floor(Math.random()*(maxY-minY))
- */
-    /*  if(frames%120===0){
-     */
-    if (this.y % cHeight === 0) {
-      this.y += 50;
-    }
-    // this.y= ((this.y+yPos)%cHeight===0)
 
-    /* if(frames%120===0){
-     */
+    let minY = 100;
+    let maxY = 600;
+    let yPos = Math.floor(Math.random() * (maxY - minY) + minY);
+
+    if (frames % 25 === 1) {
+      this.y = yPos;
+    }
   }
-  /* 
-    if (this.y === 50){
-      this.y += 1
-    }
-
-    if (this.y === 450){
-      this.y -= 1
-    } 
- */
 }
-
-/* let grandmaPosition = [];
-
-function updateGrandmaP() {
-  frames++;
-
-  for (let i = 0; i < grandmaPosition.length; i++) {
-    grandmaPosition[i].x -= 10;
-      let minY=0
-      let maxY=450
-      grandmaPosition[i].y=Math.floor(Math.random()*(maxY-minY)+minY)
-
-    grandmaPosition[i].drawGrandma();
-  }
-
-  if (frames % 120 === 0) {
-    grandmaPosition.push(new Grandma());
-  } */
