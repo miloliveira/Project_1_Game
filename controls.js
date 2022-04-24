@@ -6,5 +6,11 @@ document.addEventListener("keydown", (e) => {
     case "ArrowDown":
       newPlayer.moveDown();
       break;
+    case "ArrowRight":
+      newPlayer.moveRight();
+      break;
+    case "ArrowLeft":
+      newPlayer.moveLeft();
+      break;
   }
 });

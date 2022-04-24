@@ -38,7 +38,7 @@ class Grandma {
     let maxY = 600;
     let yPos = Math.floor(Math.random() * (maxY - minY) + minY);
 
-    if (frames % 25 === 1) {
+    if (frames % 120 === 1) {
       this.y = yPos;
     }
   }

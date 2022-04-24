@@ -33,6 +33,18 @@ class Player {
     }
   }
 
+  moveRight() {
+    if (this.x + this.width < 600) {
+      this.x += 25;
+    }
+  }
+  moveLeft() {
+    if (this.x > 0) {
+      this.x -= 25;
+    }
+  }
+
+
   top() {
     return this.y;
   }
@@ -46,7 +58,7 @@ class Player {
     return this.x + this.width;
   }
 
-  crashWithFood(food) {
+  crashWith(food) {
     return !(
       this.bottom() < food.top() ||
       this.top() > food.bottom() ||

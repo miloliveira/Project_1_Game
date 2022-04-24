@@ -48,7 +48,7 @@ class Food {
     return this.x + this.width;
   }
 
-  crashWithFood(food) {
+  crashWith(food) {
     return !(
       this.bottom() < food.top() ||
       this.top() > food.bottom() ||
@@ -97,19 +97,19 @@ function updateObstacles() {
 
   }  */
 
-  if (frames % 100 === 0) {
+  if (frames % 160 === 0) {
     foodObst1.push(new Food(60, 60, this.img1));
   }
 
-  if (frames % 120 === 0) {
+  if (frames % 200 === 0) {
     foodObst2.push(new Food(60, 60, this.img2));
   }
 
-  if (frames % 140 === 0) {
+  if (frames % 220 === 0) {
     foodObst3.push(new Food(60, 60, this.img3));
   }
 
-  if (frames % 60 === 0) {
+  if (frames % 180 === 0) {
     foodObst4.push(new Food(40, 35, this.img4));
   }
 

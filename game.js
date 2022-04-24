@@ -6,6 +6,7 @@ let frames = 0;
 let intervalId = null;
 const newPlayer = new Player(0, 250);
 const newGrandma = new Grandma();
+//const lifeBonus = new Bonus();
 
 window.onload = () => {
   document.getElementById("start-button").onclick = () => {
@@ -32,8 +33,10 @@ function updateGame() {
   newGrandma.grandmaMoves();
   newGrandma.drawGrandma();
   newGrandma.drawTime();
+  updateBonus();
   updateObstacles();
   checkGameResult();
+  checkWinOrLose();
 }
 
 function stopGame() {
@@ -41,26 +44,27 @@ function stopGame() {
 }
 
 function checkGameResult() {
+
   for (let i = 0; i < foodObst1.length; i++) {
-    if (newPlayer.crashWithFood(foodObst1[i])) {
-      newPlayer.lifeBar -= 3.4;
+    if (newPlayer.crashWith(foodObst1[i])) {
+      newPlayer.lifeBar -= 2;
     }
   }
 
   for (let i = 0; i < foodObst2.length; i++) {
-    if (newPlayer.crashWithFood(foodObst2[i])) {
-      newPlayer.lifeBar -= 3.4;
+    if (newPlayer.crashWith(foodObst2[i])) {
+      newPlayer.lifeBar -= 2;
     }
   }
 
   for (let i = 0; i < foodObst3.length; i++) {
-    if (newPlayer.crashWithFood(foodObst3[i])) {
-      newPlayer.lifeBar -= 3.4;
+    if (newPlayer.crashWith(foodObst3[i])) {
+      newPlayer.lifeBar -= 2;
     }
   }
   for (let i = 0; i < foodObst4.length; i++) {
-    if (newPlayer.crashWithFood(foodObst4[i])) {
-      newPlayer.lifeBar -= 3.4;
+    if (newPlayer.crashWith(foodObst4[i])) {
+      newPlayer.lifeBar -= 2;
     }
   }
 
@@ -70,9 +74,10 @@ function checkGameResult() {
         }
       } */
 
-  //if (crashed) {
-  //newPlayer.lifeBar -= 1;
+}
 
+function checkWinOrLose(){
+  
   if (newPlayer.lifeBar <= 0) {
     stopGame();
     newPlayer.playerLost();
@@ -82,4 +87,5 @@ function checkGameResult() {
     stopGame();
     newGrandma.grandmaLost();
   }
+
 }
