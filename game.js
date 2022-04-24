@@ -44,7 +44,6 @@ function stopGame() {
 }
 
 function checkGameResult() {
-
   for (let i = 0; i < foodObst1.length; i++) {
     if (newPlayer.crashWith(foodObst1[i])) {
       newPlayer.lifeBar -= 2;
@@ -73,11 +72,9 @@ function checkGameResult() {
           newPlayer.lifeBar -= 1;
         }
       } */
-
 }
 
-function checkWinOrLose(){
-  
+function checkWinOrLose() {
   if (newPlayer.lifeBar <= 0) {
     stopGame();
     newPlayer.playerLost();
@@ -87,5 +84,4 @@ function checkWinOrLose(){
     stopGame();
     newGrandma.grandmaLost();
   }
-
 }

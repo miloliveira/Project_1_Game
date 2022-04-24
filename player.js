@@ -44,7 +44,6 @@ class Player {
     }
   }
 
-
   top() {
     return this.y;
   }
