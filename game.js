@@ -13,9 +13,24 @@ class Game {
     this.foodObst2 = [];
     this.foodObst3 = [];
     this.foodObst4 = [];
+    this.topScore = {};
+    this.crashSound = new Audio(
+      "./docs/assets/imgs/mixkit-small-hit-in-a-game-2072.wav"
+    );
+    this.gameOverSound = new Audio(
+      "./docs/assets/imgs/failure-drum-sound-effect-2-7184.mp3"
+    );
+    this.playerWinsSound = new Audio(
+      "./docs/assets/imgs/success-fanfare-trumpets-6185.mp3"
+    );
+    this.initSound = new Audio(
+      "./docs/assets/imgs/mixkit-game-bonus-reached-2065.wav"
+    );
   }
 
   startGame() {
+    clearInterval(game.intervalId);
+    game.ctx.clearRect(0, 0, game.cWidth, game.cHeight);
     console.log("click");
     this.newPlayer = new Player(0, 250, this);
     this.newGrandma = new Grandma(this);
@@ -31,6 +46,7 @@ class Game {
   }
 
   updateGame() {
+    console.log(this.gameRuning);
     this.drawBackground();
     this.newPlayer.drawPlayer();
     this.newPlayer.drawHeartBar();
@@ -41,13 +57,8 @@ class Game {
     this.checkGameResult();
     this.updateBonus();
     this.checkWinOrLose();
-    // scoreRanking();
+    //this.scoreBoard()
   }
-
-  /* function stopGame() {
-  clearInterval(intervalId);
-  gameRuning = false;
-} */
 
   updateObstacles() {
     this.frames++;
@@ -90,23 +101,35 @@ class Game {
     for (let i = 0; i < this.foodObst1.length; i++) {
       if (this.newPlayer.crashWith(this.foodObst1[i])) {
         this.newPlayer.lifeBar -= 2;
+        this.crashSound.loop = false;
+        this.crashSound.play();
+        //this.foodObst1.splice(this.foodObst1[i-1],1)
       }
     }
 
     for (let i = 0; i < this.foodObst2.length; i++) {
       if (this.newPlayer.crashWith(this.foodObst2[i])) {
         this.newPlayer.lifeBar -= 2;
+        this.crashSound.loop = false;
+        this.crashSound.play();
+        //this.foodObst2.splice(this.foodObst2[i-1],1)
       }
     }
 
     for (let i = 0; i < this.foodObst3.length; i++) {
       if (this.newPlayer.crashWith(this.foodObst3[i])) {
         this.newPlayer.lifeBar -= 2;
+        this.crashSound.loop = false;
+        this.crashSound.play();
+        //this.foodObst3.splice(this.foodObst3[i-1],1)
       }
     }
     for (let i = 0; i < this.foodObst4.length; i++) {
       if (this.newPlayer.crashWith(this.foodObst4[i])) {
         this.newPlayer.lifeBar -= 2;
+        this.crashSound.loop = false;
+        this.crashSound.play();
+        // this.foodObst4.splice(this.foodObst4[i-1],1)
       }
     }
   }
@@ -133,17 +156,49 @@ class Game {
 
   checkWinOrLose() {
     if (this.newPlayer.lifeBar <= 0) {
-      //stopGame();
       clearInterval(this.intervalId);
       this.gameRuning = false;
       this.newGrandma.grandmaWins();
+      this.gameOverSound.loop = false;
+      this.gameOverSound.play();
     }
 
     if (this.newGrandma.lifeBar <= 0) {
-      //stopGame();
       clearInterval(this.intervalId);
       this.gameRuning = false;
       this.newPlayer.playerWins();
+      this.playerWinsSound.loop = false;
+      this.playerWinsSound.play();
     }
+    localStorage.setItem(
+      `last Score is:`,
+      JSON.stringify(this.newPlayer.lifeBar)
+    );
+  }
+  /* 
+  scoreBoard(){
+    let topScore =JSON.parse(localStorage.getItem('last Score is:'))
+    
+    this.ctx.fillStyle = "black";
+    this.ctx.fillRect(400, 200, 400, 300);
+    this.ctx.font = "25px serif";
+    this.ctx.fillStyle = "white";
+    this.ctx.fillText(`your score is`, 540, 300);
+    this.ctx.fillText(`${topScore}`, 550, 340);
+  }  */
+
+  sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function () {
+      this.sound.play();
+    };
+    this.stop = function () {
+      this.sound.pause();
+    };
   }
 }

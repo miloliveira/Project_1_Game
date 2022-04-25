@@ -1,6 +1,7 @@
 class Food {
   constructor(width, height, img, game) {
-    this.x = game.cWidth - game.newGrandma.width;
+    this.game = game;
+    this.x = this.game.cWidth - this.game.newGrandma.width;
     this.y = game.newGrandma.y;
     this.width = width;
     this.height = height;
@@ -9,7 +10,6 @@ class Food {
     this.img2 = new Image();
     this.img3 = new Image();
     this.img4 = new Image();
-    this.game = game;
   }
 
   update1() {
