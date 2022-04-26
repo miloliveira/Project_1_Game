@@ -1,7 +1,8 @@
 class Game {
-  constructor() {
+  constructor(level) {
     this.canvas = document.getElementById("canvas");
     this.ctx = canvas.getContext("2d");
+    this.level = level;
     this.cWidth = canvas.width;
     this.cHeight = canvas.height;
     this.frames = 0;
@@ -82,19 +83,19 @@ class Game {
       this.foodObst4[i].update4();
     }
 
-    if (this.frames % 160 === 0) {
+    if (this.frames % (200 * this.level) === 0) {
       this.foodObst1.push(new Food(60, 60, this.img1, this));
     }
 
-    if (this.frames % 200 === 0) {
+    if (this.frames % (240 * this.level) === 0) {
       this.foodObst2.push(new Food(60, 60, this.img2, this));
     }
 
-    if (this.frames % 220 === 0) {
+    if (this.frames % (220 * this.level) === 0) {
       this.foodObst3.push(new Food(60, 60, this.img3, this));
     }
 
-    if (this.frames % 180 === 0) {
+    if (this.frames % (180 * this.level) === 0) {
       this.foodObst4.push(new Food(40, 35, this.img4, this));
     }
   }

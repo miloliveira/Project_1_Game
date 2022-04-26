@@ -14,7 +14,7 @@ header {
 
 h1 {
   font-size: 4em;
-  color: brown;
+  color: #a33531;
 }
 
 p {
@@ -43,7 +43,7 @@ p {
 }
 
 .start-button {
-  border: 3px solid brown;
+  border: 3px solid #a33531;
   font-family: "Orelega One", cursive;
   font-size: 2rem;
   border-radius: 5px;
@@ -52,20 +52,20 @@ p {
   box-shadow: 2px 2px 0px 0px;
 
   transition: all 0.5s ease;
-  color: black;
+  color: #e2ccce;
 
   line-height: 1;
 
-  background-color: brown;
+  background-color: #a33531;
   outline: none;
 }
 .start-button:hover {
-  color: brown;
+  color: #a33531;
   background-color: #e2ccce;
 }
 
 .reset-button {
-  border: 3px solid brown;
+  border: 3px solid #a33531;
   font-family: "Orelega One", cursive;
   font-size: 2rem;
   border-radius: 5px;
@@ -78,17 +78,17 @@ p {
 
   line-height: 1;
 
-  background-color: brown;
+  background-color: #a33531;
   outline: none;
 }
 .reset-button:hover {
-  color: brown;
+  color: #a33531;
   background-color: #e2ccce;
 }
 
 .level-button {
   margin-left: 2%;
-  border: 3px solid brown;
+  border: 3px solid #a33531;
   font-family: "Orelega One", cursive;
   font-size: 1.5rem;
   border-radius: 5px;
@@ -107,7 +107,7 @@ p {
 
 .level-button:hover {
   color: #e2ccce;
-  background-color: brown;
+  background-color: #a33531;
 }
 
 .level-buttons {
