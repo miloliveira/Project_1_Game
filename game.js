@@ -15,17 +15,17 @@ class Game {
     this.foodObst4 = [];
     this.topScore = {};
     this.crashSound = new Audio(
-      "./docs/assets/imgs/mixkit-small-hit-in-a-game-2072.wav"
+      "./docs/assets/sounds/mixkit-small-hit-in-a-game-2072.wav"
     );
     this.gameOverSound = new Audio(
-      "./docs/assets/imgs/failure-drum-sound-effect-2-7184.mp3"
+      "./docs/assets/sounds/failure-drum-sound-effect-2-7184.mp3"
     );
     this.playerWinsSound = new Audio(
-      "./docs/assets/imgs/success-fanfare-trumpets-6185.mp3"
+      "./docs/assets/sounds/success-fanfare-trumpets-6185.mp3"
     );
-    this.initSound = new Audio(
+    /* this.initSound = new Audio(
       "./docs/assets/imgs/mixkit-game-bonus-reached-2065.wav"
-    );
+    ); */
   }
 
   startGame() {
@@ -36,7 +36,9 @@ class Game {
     this.newGrandma = new Grandma(this);
     this.gameRuning = true;
     this.intervalId = setInterval(() => {
-      this.updateGame();
+      if (this.gameRuning) {
+        this.updateGame();
+      }
     }, 1000 / 60);
   }
 
@@ -156,11 +158,11 @@ class Game {
 
   checkWinOrLose() {
     if (this.newPlayer.lifeBar <= 0) {
-      clearInterval(this.intervalId);
-      this.gameRuning = false;
       this.newGrandma.grandmaWins();
       this.gameOverSound.loop = false;
       this.gameOverSound.play();
+      clearInterval(this.intervalId);
+      this.gameRuning = false;
     }
 
     if (this.newGrandma.lifeBar <= 0) {

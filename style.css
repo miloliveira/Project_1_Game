@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Orelega+One&display=swap");
+
+body {
+  font-family: "Orelega One", cursive;
+  background-color: #e2ccce;
+  width: 97vw;
+  height: 97vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+}
+
+h1 {
+  font-size: 4em;
+  color: brown;
+}
+
+p {
+  font-size: 2.3rem;
+  text-align: center;
+  padding-top: 2%;
+}
+
+.content {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.game-intro {
+  display: flex;
+  flex-direction: column;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.mid-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.start-button {
+  border: 3px solid brown;
+  font-family: "Orelega One", cursive;
+  font-size: 2rem;
+  border-radius: 5px;
+
+  padding: 15px 20px 15px 20px;
+  box-shadow: 2px 2px 0px 0px;
+
+  transition: all 0.5s ease;
+  color: black;
+
+  line-height: 1;
+
+  background-color: brown;
+  outline: none;
+}
+.start-button:hover {
+  color: brown;
+  background-color: #e2ccce;
+}
+
+.reset-button {
+  border: 3px solid brown;
+  font-family: "Orelega One", cursive;
+  font-size: 2rem;
+  border-radius: 5px;
+
+  padding: 15px 20px 15px 20px;
+  box-shadow: 2px 2px 0px 0px;
+
+  transition: all 0.5s ease;
+  color: black;
+
+  line-height: 1;
+
+  background-color: brown;
+  outline: none;
+}
+.reset-button:hover {
+  color: brown;
+  background-color: #e2ccce;
+}
+
+.level-button {
+  margin-left: 2%;
+  border: 3px solid brown;
+  font-family: "Orelega One", cursive;
+  font-size: 1.5rem;
+  border-radius: 5px;
+
+  padding: 10px 20px 10px 20px;
+  box-shadow: 2px 2px 0px 0px;
+
+  transition: all 0.5s ease;
+  color: black;
+
+  line-height: 1;
+
+  background-color: #e2ccce;
+  outline: none;
+}
+
+.level-button:hover {
+  color: #e2ccce;
+  background-color: brown;
+}
+
+.level-buttons {
+  margin: 4%;
+  display: flex;
+  justify-content: center;
+}
+
+#choose-nana-p {
+  margin: 0;
+}
+
+#last-btn {
+  display: flex;
+  justify-content: center;
+}
+
+#canvas {
+  background-image: url("./docs/assets/imgs/bg.jpg");
+  margin-right: 4%;
+}

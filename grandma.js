@@ -4,14 +4,19 @@ class Grandma {
     this.y = 0;
     this.width = 85; //width image
     this.height = 120; //height image
-    this.img = new Image();
+    this.img1 = new Image();
     this.lifeBar = 230;
     this.game = game;
+    const img = new Image();
+    img.addEventListener("load", () => {
+      this.img2 = img;
+    });
+    img.src = "./docs/assets/imgs/gameover.png";
   }
 
   drawGrandma() {
-    this.img.src = "./docs/assets/imgs/grandma_100x65.png";
-    this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    this.img1.src = "./docs/assets/imgs/grandma_100x65.png";
+    this.game.ctx.drawImage(this.img1, this.x, this.y, this.width, this.height);
   }
 
   drawTime() {
@@ -22,12 +27,7 @@ class Grandma {
   }
 
   grandmaWins() {
-    this.game.ctx.fillStyle = "black";
-    this.game.ctx.fillRect(400, 200, 400, 300);
-    this.game.ctx.font = "25px serif";
-    this.game.ctx.fillStyle = "white";
-    this.game.ctx.fillText(`GAME OVER!`, 540, 300);
-    this.game.ctx.fillText(`NANA WON!`, 550, 340);
+    this.game.ctx.drawImage(this.img2, 300, 200, 600, 400);
   }
 
   grandmaMoves() {

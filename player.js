@@ -7,8 +7,12 @@ class Player {
     this.img = new Image();
     this.lifeBar = 340;
     this.heartBarImg = new Image();
-
     this.game = game;
+    const img2 = new Image();
+    img2.addEventListener("load", () => {
+      this.img2 = img2;
+    });
+    img2.src = "./docs/assets/imgs/playerwins.png";
   }
 
   drawPlayer() {
@@ -69,7 +73,7 @@ class Player {
   }
 
   playerWins() {
-    this.game.ctx.fillStyle = "black";
+    /* this.game.ctx.fillStyle = "black";
     this.game.ctx.fillRect(350, 200, 500, 300);
     this.game.ctx.font = "25px serif";
     this.game.ctx.fillStyle = "white";
@@ -77,6 +81,7 @@ class Player {
     this.game.ctx.fillText(`YOU WON!`, 525, 280);
     this.game.ctx.fillText(`NANA GOT TIRED OF`, 460, 330);
     this.game.ctx.fillText(`THROWING SO MUCH FOOD`, 420, 360);
-    this.game.ctx.fillText(`Your score:${game.newPlayer.lifeBar}`, 430, 390);
+    this.game.ctx.fillText(`Your score:${game.newPlayer.lifeBar}`, 430, 390); */
+    this.game.ctx.drawImage(this.img2, 300, 200, 600, 400);
   }
 }

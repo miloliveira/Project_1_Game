@@ -5,29 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project-1-Game</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="game-intro">
-      <br />
+    <header>
       <h1>GRANDMA ATTACKS!</h1>
-      <p>
-        Grandma is attacking you with food! Avoid the obstacles until grandma
-        gets tired to win the game!
-      </p>
-      <p>Let's GO!</p>
-      <button id="start-button">START</button>
-      <button id="reset-button">reset</button>
-    </div>
+    </header>
+    <div class="content">
+      <div class="game-intro">
+        <div>
+          <p>Grandma thinks you're too thin, therefore, you gotta eat!!!</p>
+          <p>
+            She is attacking you with food! Avoid the obstacles until grandma
+            gets tired to win the game!
+          </p>
+          <p>Let's GO!</p>
+        </div>
+        <div class="mid-div">
+          <p id="choose-nana-p">Choose your Grandma and press START</p>
 
-    <div id="game-board">
-      <canvas
-        id="canvas"
-        width="1200"
-        height="800"
-        style="border: 10px solid black"
-      ></canvas>
-    </div>
+          <div class="level-buttons">
+            <button class="level-button">Easy going</button>
+            <button class="level-button">Not that cute</button>
+            <button class="level-button">Run for yor life</button>
+          </div>
+          <div id="last-btn">
+            <button class="start-button">START</button>
+          </div>
+        </div>
+      </div>
 
+      <div id="game-board">
+        <canvas
+          id="canvas"
+          width="1200"
+          height="800"
+          style="border: 5px solid #e2ccce"
+        ></canvas>
+      </div>
+    </div>
     <script src="./bonus.js"></script>
     <script src="./controls.js"></script>
     <script src="./food.js"></script>
