@@ -4,11 +4,11 @@ class Player {
     this.y = y;
     this.width = 55;
     this.height = 90;
-    this.img = new Image();
+    this.imgPlayer = playerImg;
     this.lifeBar = 340;
     this.heartBarImg = new Image();
     this.game = game;
-    this.playerCoins=0;
+    this.playerCoins = 0;
     const img2 = new Image();
     img2.addEventListener("load", () => {
       this.img2 = img2;
@@ -17,8 +17,15 @@ class Player {
   }
 
   drawPlayer() {
-    this.img.src = "./docs/assets/imgs/kid_90x50.png";
-    this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    grandmaAnimation();
+    playerAnimation();
+    this.game.ctx.drawImage(
+      this.imgPlayer,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
   }
 
   drawHeartBar() {
@@ -77,6 +84,20 @@ class Player {
     this.game.ctx.drawImage(this.img2, 300, 200, 600, 400);
     this.game.ctx.font = "55px helvetica";
     this.game.ctx.fillStyle = "black";
-    this.game.ctx.fillText(`${this.playerCoins}`,595, 548)
+    this.game.ctx.fillText(`${this.playerCoins}`, 595, 548);
+  }
+}
+
+playerImg1 = new Image();
+playerImg1.src = "./docs/assets/imgs/kid_90x50.png";
+playerImg2 = new Image();
+playerImg2.src = "./docs/assets/imgs/kid_90x50_2.png";
+playerImg = new Image();
+playerImg.src = playerImg1.src;
+function playerAnimation() {
+  if (game.frames % 20 === 0) {
+    playerImg.src = playerImg1.src;
+  } else if (game.frames % 15 === 1) {
+    playerImg.src = playerImg2.src;
   }
 }

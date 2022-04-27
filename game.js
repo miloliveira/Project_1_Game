@@ -104,7 +104,6 @@ class Game {
         this.newPlayer.lifeBar -= 2;
         this.crashSound.loop = false;
         this.crashSound.play();
-        //this.foodObst1.splice(this.foodObst1[i-1],1)
       }
     }
 
@@ -113,7 +112,6 @@ class Game {
         this.newPlayer.lifeBar -= 2;
         this.crashSound.loop = false;
         this.crashSound.play();
-        //this.foodObst2.splice(this.foodObst2[i-1],1)
       }
     }
 
@@ -122,7 +120,6 @@ class Game {
         this.newPlayer.lifeBar -= 2;
         this.crashSound.loop = false;
         this.crashSound.play();
-        //this.foodObst3.splice(this.foodObst3[i-1],1)
       }
     }
     for (let i = 0; i < this.foodObst4.length; i++) {
@@ -130,7 +127,6 @@ class Game {
         this.newPlayer.lifeBar -= 2;
         this.crashSound.loop = false;
         this.crashSound.play();
-        // this.foodObst4.splice(this.foodObst4[i-1],1)
       }
     }
   }
@@ -169,7 +165,7 @@ class Game {
     this.ctx.font = "30px helvetica";
     this.ctx.fillStyle = "black";
     this.ctx.fillText(`${this.newPlayer.playerCoins}`, 110, 108);
-    this.imgCoin.src = "./docs/assets/imgs/coinw40h42.png";
+    this.imgCoin.src = "./docs/assets/imgs/coin_w40h42_full.png";
     this.ctx.drawImage(this.imgCoin, 70, 80, 30, 32);
   }
 
@@ -194,17 +190,6 @@ class Game {
       JSON.stringify(this.newPlayer.lifeBar)
     );
   }
-  /* 
-  scoreBoard(){
-    let topScore =JSON.parse(localStorage.getItem('last Score is:'))
-    
-    this.ctx.fillStyle = "black";
-    this.ctx.fillRect(400, 200, 400, 300);
-    this.ctx.font = "25px serif";
-    this.ctx.fillStyle = "white";
-    this.ctx.fillText(`your score is`, 540, 300);
-    this.ctx.fillText(`${topScore}`, 550, 340);
-  }  */
 
   sound(src) {
     this.sound = document.createElement("audio");

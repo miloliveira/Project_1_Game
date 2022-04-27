@@ -4,7 +4,7 @@ class Grandma {
     this.y = 0;
     this.width = 85;
     this.height = 120;
-    this.img1 = new Image();
+    this.imgGrandma = grandmaImg;
     this.lifeBar = 230;
     this.game = game;
     const img = new Image();
@@ -15,8 +15,13 @@ class Grandma {
   }
 
   drawGrandma() {
-    this.img1.src = "./docs/assets/imgs/grandma_100x65.png";
-    this.game.ctx.drawImage(this.img1, this.x, this.y, this.width, this.height);
+    this.game.ctx.drawImage(
+      this.imgGrandma,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
   }
 
   drawTime() {
@@ -43,5 +48,20 @@ class Grandma {
     if (this.game.frames % 120 === 1) {
       this.y = yPos;
     }
+  }
+}
+
+grandmaImg1 = new Image();
+grandmaImg1.src = "docs/assets/imgs/grandma_100x65.png";
+grandmaImg2 = new Image();
+grandmaImg2.src = "docs/assets/imgs/grandma_100x65_2.png";
+grandmaImg = new Image();
+grandmaImg.src = grandmaImg1.src;
+function grandmaAnimation() {
+  if (game.frames % 15 === 0) {
+    grandmaImg.src = grandmaImg1.src;
+  }
+  if (game.frames % 25 === 1) {
+    grandmaImg.src = grandmaImg2.src;
   }
 }
