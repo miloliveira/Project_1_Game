@@ -9,12 +9,14 @@ class Game {
     this.intervalId = null;
     this.gameRuning = false;
     this.bgImage = new Image();
+    this.coinBonus = [];
     this.lifeBonus = [];
     this.foodObst1 = [];
     this.foodObst2 = [];
     this.foodObst3 = [];
     this.foodObst4 = [];
     this.topScore = {};
+    this.imgCoin = new Image();
     this.crashSound = new Audio(
       "./docs/assets/sounds/mixkit-small-hit-in-a-game-2072.wav"
     );
@@ -24,9 +26,6 @@ class Game {
     this.playerWinsSound = new Audio(
       "./docs/assets/sounds/success-fanfare-trumpets-6185.mp3"
     );
-    /* this.initSound = new Audio(
-      "./docs/assets/imgs/mixkit-game-bonus-reached-2065.wav"
-    ); */
   }
 
   startGame() {
@@ -60,7 +59,6 @@ class Game {
     this.checkGameResult();
     this.updateBonus();
     this.checkWinOrLose();
-    //this.scoreBoard()
   }
 
   updateObstacles() {
@@ -155,6 +153,24 @@ class Game {
         this.lifeBonus.pop(this.lifeBonus[0]);
       }
     }
+
+    for (let i = 0; i < this.coinBonus.length; i++) {
+      this.coinBonus[0].updateCoinBonus();
+    }
+    if (this.frames % (200 * this.level) === 0) {
+      this.coinBonus.push(new Bonus(this));
+    }
+    for (let i = 0; i < this.coinBonus.length; i++) {
+      if (this.newPlayer.crashWith(this.coinBonus[0])) {
+        this.newPlayer.playerCoins += 10;
+        this.coinBonus.pop(this.coinBonus[0]);
+      }
+    }
+    this.ctx.font = "30px helvetica";
+    this.ctx.fillStyle = "black";
+    this.ctx.fillText(`${this.newPlayer.playerCoins}`, 110, 108);
+    this.imgCoin.src = "./docs/assets/imgs/coinw40h42.png";
+    this.ctx.drawImage(this.imgCoin, 70, 80, 30, 32);
   }
 
   checkWinOrLose() {

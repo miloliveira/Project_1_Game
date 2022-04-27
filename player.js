@@ -1,13 +1,14 @@
 class Player {
   constructor(x, y, game) {
-    this.x = x; //starts at x=0
+    this.x = x;
     this.y = y;
-    this.width = 55; //width image
-    this.height = 90; //height image
+    this.width = 55;
+    this.height = 90;
     this.img = new Image();
     this.lifeBar = 340;
     this.heartBarImg = new Image();
     this.game = game;
+    this.playerCoins=0;
     const img2 = new Image();
     img2.addEventListener("load", () => {
       this.img2 = img2;
@@ -34,13 +35,13 @@ class Player {
     }
   }
   moveDown() {
-    if (this.y + this.height < 800) {
+    if (this.y + this.height < 770) {
       this.y += 25;
     }
   }
 
   moveRight() {
-    if (this.x + this.width < 600) {
+    if (this.x + this.width < 500) {
       this.x += 25;
     }
   }
@@ -73,15 +74,9 @@ class Player {
   }
 
   playerWins() {
-    /* this.game.ctx.fillStyle = "black";
-    this.game.ctx.fillRect(350, 200, 500, 300);
-    this.game.ctx.font = "25px serif";
-    this.game.ctx.fillStyle = "white";
-    this.game.ctx.fillText(`CONGRATS`, 520, 250);
-    this.game.ctx.fillText(`YOU WON!`, 525, 280);
-    this.game.ctx.fillText(`NANA GOT TIRED OF`, 460, 330);
-    this.game.ctx.fillText(`THROWING SO MUCH FOOD`, 420, 360);
-    this.game.ctx.fillText(`Your score:${game.newPlayer.lifeBar}`, 430, 390); */
     this.game.ctx.drawImage(this.img2, 300, 200, 600, 400);
+    this.game.ctx.font = "55px helvetica";
+    this.game.ctx.fillStyle = "black";
+    this.game.ctx.fillText(`${this.playerCoins}`,595, 548)
   }
 }

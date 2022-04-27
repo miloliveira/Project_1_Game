@@ -29,8 +29,11 @@ function resetGame() {
     game.startGame();
     startButton.disabled = true;
   }
+
   buttonEasy.style.backgroundColor = "#e2ccce";
+
   buttonMed.style.backgroundColor = "#e2ccce";
+
   buttonHard.style.backgroundColor = "#e2ccce";
 }
 
@@ -48,19 +51,21 @@ window.onload = () => {
 
 buttonEasy.addEventListener("click", () => {
   gameLevel = 1;
-
   startButton.disabled = false;
+
   buttonEasy.style.backgroundColor = "#A33531";
 });
 
 buttonMed.addEventListener("click", () => {
   gameLevel = 0.8;
   startButton.disabled = false;
+
   buttonMed.style.backgroundColor = "#A33531";
 });
 
 buttonHard.addEventListener("click", () => {
   gameLevel = 0.5;
   startButton.disabled = false;
+
   buttonHard.style.backgroundColor = "#A33531";
 });
