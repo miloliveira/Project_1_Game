@@ -10,7 +10,6 @@ function startGame() {
   if (!game) {
     game = new Game(gameLevel);
   }
-  console.log(game.gameRuning);
   if (!game.gameRuning) {
     game.startGame();
     startButton.disabled = true;

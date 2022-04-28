@@ -31,7 +31,6 @@ class Game {
   startGame() {
     clearInterval(game.intervalId);
     game.ctx.clearRect(0, 0, game.cWidth, game.cHeight);
-    console.log("click");
     this.newPlayer = new Player(0, 250, this);
     this.newGrandma = new Grandma(this);
     this.gameRuning = true;
@@ -48,7 +47,6 @@ class Game {
   }
 
   updateGame() {
-    console.log(this.gameRuning);
     this.drawBackground();
     this.newPlayer.drawPlayer();
     this.newPlayer.drawHeartBar();
@@ -172,11 +170,11 @@ class Game {
 
   checkWinOrLose() {
     if (this.newPlayer.lifeBar <= 0) {
+      clearInterval(this.intervalId);
+      this.gameRuning = false;
       this.newGrandma.grandmaWins();
       this.gameOverSound.loop = false;
       this.gameOverSound.play();
-      clearInterval(this.intervalId);
-      this.gameRuning = false;
     }
 
     if (this.newGrandma.lifeBar <= 0) {
@@ -186,24 +184,5 @@ class Game {
       this.playerWinsSound.loop = false;
       this.playerWinsSound.play();
     }
-    localStorage.setItem(
-      `last Score is:`,
-      JSON.stringify(this.newPlayer.lifeBar)
-    );
-  }
-
-  sound(src) {
-    this.sound = document.createElement("audio");
-    this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function () {
-      this.sound.play();
-    };
-    this.stop = function () {
-      this.sound.pause();
-    };
   }
 }
