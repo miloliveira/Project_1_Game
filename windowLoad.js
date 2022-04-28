@@ -54,6 +54,8 @@ buttonEasy.addEventListener("click", () => {
   startButton.disabled = false;
 
   buttonEasy.style.backgroundColor = "#A33531";
+  buttonMed.style.backgroundColor = "#e2ccce";
+  buttonHard.style.backgroundColor = "#e2ccce";
 });
 
 buttonMed.addEventListener("click", () => {
@@ -61,11 +63,15 @@ buttonMed.addEventListener("click", () => {
   startButton.disabled = false;
 
   buttonMed.style.backgroundColor = "#A33531";
+  buttonEasy.style.backgroundColor = "#e2ccce";
+  buttonHard.style.backgroundColor = "#e2ccce";
 });
 
 buttonHard.addEventListener("click", () => {
-  gameLevel = 0.5;
+  gameLevel = 0.45;
   startButton.disabled = false;
 
   buttonHard.style.backgroundColor = "#A33531";
+  buttonEasy.style.backgroundColor = "#e2ccce";
+  buttonMed.style.backgroundColor = "#e2ccce";
 });

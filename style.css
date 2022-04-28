@@ -106,8 +106,8 @@ p {
 }
 
 .level-button:hover {
-  color: black;
-  background-color: #a33531;
+  color: black !important;
+  background-color: #a33531 !important;
 }
 
 .level-buttons {

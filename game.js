@@ -18,7 +18,7 @@ class Game {
     this.topScore = {};
     this.imgCoin = new Image();
     this.crashSound = new Audio(
-      "./docs/assets/sounds/mixkit-small-hit-in-a-game-2072.wav"
+      "./docs/assets/sounds/mixkit-hard-typewriter-hit-1364.wav"
     );
     this.gameOverSound = new Audio(
       "./docs/assets/sounds/failure-drum-sound-effect-2-7184.mp3"
@@ -67,6 +67,7 @@ class Game {
 
     for (let i = 0; i < this.foodObst1.length; i++) {
       this.foodObst1[i].update1();
+      this.newPlayer.crash = false;
     }
 
     for (let i = 0; i < this.foodObst2.length; i++) {
@@ -99,35 +100,35 @@ class Game {
   }
 
   checkGameResult() {
-    for (let i = 0; i < this.foodObst1.length; i++) {
-      if (this.newPlayer.crashWith(this.foodObst1[i])) {
-        this.newPlayer.lifeBar -= 2;
-        this.crashSound.loop = false;
-        this.crashSound.play();
+    const food1Crash = this.foodObst1.some((food, index) => {
+      if (this.newPlayer.crashWith(food)) {
+        this.foodObst1.splice(index, 1);
       }
-    }
+      return this.newPlayer.crashWith(food);
+    });
+    const food2Crash = this.foodObst2.some((food, index) => {
+      if (this.newPlayer.crashWith(food)) {
+        this.foodObst2.splice(index, 1);
+      }
+      return this.newPlayer.crashWith(food);
+    });
+    const food3Crash = this.foodObst3.some((food, index) => {
+      if (this.newPlayer.crashWith(food)) {
+        this.foodObst3.splice(index, 1);
+      }
+      return this.newPlayer.crashWith(food);
+    });
+    const food4Crash = this.foodObst4.some((food, index) => {
+      if (this.newPlayer.crashWith(food)) {
+        this.foodObst4.splice(index, 1);
+      }
+      return this.newPlayer.crashWith(food);
+    });
 
-    for (let i = 0; i < this.foodObst2.length; i++) {
-      if (this.newPlayer.crashWith(this.foodObst2[i])) {
-        this.newPlayer.lifeBar -= 2;
-        this.crashSound.loop = false;
-        this.crashSound.play();
-      }
-    }
-
-    for (let i = 0; i < this.foodObst3.length; i++) {
-      if (this.newPlayer.crashWith(this.foodObst3[i])) {
-        this.newPlayer.lifeBar -= 2;
-        this.crashSound.loop = false;
-        this.crashSound.play();
-      }
-    }
-    for (let i = 0; i < this.foodObst4.length; i++) {
-      if (this.newPlayer.crashWith(this.foodObst4[i])) {
-        this.newPlayer.lifeBar -= 2;
-        this.crashSound.loop = false;
-        this.crashSound.play();
-      }
+    if (food1Crash || food2Crash || food3Crash || food4Crash) {
+      this.newPlayer.lifeBar -= 40;
+      this.crashSound.loop = false;
+      this.crashSound.play();
     }
   }
 
@@ -145,8 +146,8 @@ class Game {
         this.newPlayer.crashWith(this.lifeBonus[0]) &&
         this.newPlayer.lifeBar < 340
       ) {
-        this.newPlayer.lifeBar += 10;
-        this.lifeBonus.pop(this.lifeBonus[0]);
+        this.newPlayer.lifeBar += 40;
+        this.lifeBonus.splice(this.lifeBonus[0], 1);
       }
     }
 
@@ -159,7 +160,7 @@ class Game {
     for (let i = 0; i < this.coinBonus.length; i++) {
       if (this.newPlayer.crashWith(this.coinBonus[0])) {
         this.newPlayer.playerCoins += 10;
-        this.coinBonus.pop(this.coinBonus[0]);
+        this.coinBonus.splice(0, 1);
       }
     }
     this.ctx.font = "30px helvetica";
