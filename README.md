@@ -1,6 +1,4 @@
-# Project_1_Game
-
-## _"Grandma Attacks"_
+# _"Grandma Attacks"_
 
 
 ### Misson :rocket: 
@@ -26,6 +24,6 @@ Besides, some life bonus appears in the canvas if the player's life is to low.
 
 The player must use the arrow keys on the keyboard to move the character, finish his/her mission and win the game.
 
-## Have fun 
+## Have fun :tada:
 
 Check out the deployd game [HERE](https://miloliveira.github.io/Project_1_Game/) and have fun! 
