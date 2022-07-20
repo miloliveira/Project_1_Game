@@ -10,7 +10,6 @@ _Grandma Attacks_ is the Project 1 of the Ironhack Web Development Bootcamp.
 The mission was to create a game using the tools we had learned in the first 2 weeks of the bootcamp. 
 
 
-
 ### Idea :older_woman: 
 
 The idea was based in the fact that all my life, I heard my grandmother telling me that I was to thin, while she was giving me food. 
@@ -26,3 +25,7 @@ Besides, some life bonus appears in the canvas if the player's life is to low.
 ## Controls :clipboard:
 
 The player must use the arrow keys on the keyboard to move the character, finish his/her mission and win the game.
+
+## Have fun 
+
+Check out the deployd game [HERE](https://miloliveira.github.io/Project_1_Game/) and have fun! 
