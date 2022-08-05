@@ -3,10 +3,7 @@
 
 ### Misson :rocket: 
 
-_Grandma Attacks_ is the Project 1 of the Ironhack Web Development Bootcamp.
-
-The mission was to create a game using the tools we had learned in the first 2 weeks of the bootcamp. 
-
+First project 1 of the Ironhack Web Development Bootcamp.
 
 ### Idea :older_woman: 
 
@@ -20,7 +17,7 @@ The goal is for the player to avoid the food _grandma_ is throwing at him/her, u
 Besides, some life bonus appears in the canvas if the player's life is to low.
 
 
-## Controls :clipboard:
+### Controls :clipboard:
 
 The player must use the arrow keys on the keyboard to move the character, finish his/her mission and win the game.
 
