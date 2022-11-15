@@ -1,6 +1,5 @@
 # _"Grandma Attacks"_
 
-
 ### Misson :rocket: 
 
 First project 1 of the Ironhack Web Development Bootcamp.
@@ -23,4 +22,4 @@ The player must use the arrow keys on the keyboard to move the character, finish
 
 ## Have fun :tada:
 
-Check out the deployed game [HERE](https://miloliveira.github.io/Project_1_Game/) and have fun! 
+Check out the deployed game [here](https://miloliveira.github.io/Project_1_Game/) and have fun! 
